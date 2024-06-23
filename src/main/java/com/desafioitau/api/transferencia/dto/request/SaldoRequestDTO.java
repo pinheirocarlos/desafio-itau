@@ -1,14 +1,15 @@
-package com.desafioitau.api.transferencia.dto;
+package com.desafioitau.api.transferencia.dto.request;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class NotificacaoRequestDTO {
+public class SaldoRequestDTO {
 
     private double valor;
-    private Conta conta;
+    private String nomeDestino;
 
     public static class Conta {
         private String idOrigem;

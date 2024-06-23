@@ -1,14 +1,14 @@
-package com.desafioitau.api.transferencia.dto;
+package com.desafioitau.api.transferencia.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class SaldoRequestDTO {
+public class NotificacaoRequestDTO {
 
     private double valor;
-    private String nomeDestino;
+    private Conta conta;
 
     public static class Conta {
         private String idOrigem;

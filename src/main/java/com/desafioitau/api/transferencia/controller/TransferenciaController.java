@@ -1,7 +1,8 @@
 package com.desafioitau.api.transferencia.controller;
 
-import com.desafioitau.api.transferencia.dto.TransferenciaRequestDTO;
-import com.desafioitau.api.transferencia.dto.TransferenciaResponseDTO;
+import com.desafioitau.api.transferencia.dto.request.TransferenciaRequestDTO;
+import com.desafioitau.api.transferencia.dto.response.TransferenciaResponseDTO;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @RestController
 public class TransferenciaController {
 
+    @Operation(summary = "Realiza transferência bancária entre clientes.")
     @PostMapping("/transferencia")
     public ResponseEntity<TransferenciaResponseDTO> efetuarTransferencia(@RequestBody TransferenciaRequestDTO transferenciaRequestDTO)
     {
