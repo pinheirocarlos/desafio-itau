@@ -1,4 +1,4 @@
-package com.desafioitau.api.transferencia.config;
+package com.desafioitau.api.transferencia.infrastructure.config;
 
 
 import io.swagger.v3.oas.models.Components;

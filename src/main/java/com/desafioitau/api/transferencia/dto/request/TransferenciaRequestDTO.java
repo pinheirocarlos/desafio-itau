@@ -1,6 +1,5 @@
 package com.desafioitau.api.transferencia.dto.request;
 
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +15,7 @@ public class TransferenciaRequestDTO {
 
     private Conta conta;
 
+    @Getter
     public static class Conta {
         private String idOrigem;
 
