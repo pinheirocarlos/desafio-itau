@@ -6,3 +6,12 @@ services:
       - "9090:8080"
     volumes:
       - ./wiremock/mappings:/home/wiremock/mappings
+
+  api-transferencia:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - wiremock
