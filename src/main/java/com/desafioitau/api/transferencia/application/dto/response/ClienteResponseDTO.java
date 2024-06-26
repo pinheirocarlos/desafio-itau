@@ -1,4 +1,4 @@
-package com.desafioitau.api.transferencia.dto.response;
+package com.desafioitau.api.transferencia.application.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;

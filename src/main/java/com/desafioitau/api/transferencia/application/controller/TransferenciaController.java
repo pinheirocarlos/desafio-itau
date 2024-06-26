@@ -1,9 +1,10 @@
-package com.desafioitau.api.transferencia.controller;
+package com.desafioitau.api.transferencia.application.controller;
 
-import com.desafioitau.api.transferencia.dto.request.TransferenciaRequestDTO;
-import com.desafioitau.api.transferencia.dto.response.TransferenciaResponseDTO;
-import com.desafioitau.api.transferencia.service.TransferenciaService;
+import com.desafioitau.api.transferencia.application.dto.request.TransferenciaRequestDTO;
+import com.desafioitau.api.transferencia.application.dto.response.TransferenciaResponseDTO;
+import com.desafioitau.api.transferencia.application.service.TransferenciaService;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,7 @@ public class TransferenciaController {
 
     @Operation(summary = "Realiza transferência bancária entre clientes.")
     @PostMapping("/transferencia")
-    public ResponseEntity<TransferenciaResponseDTO> efetuarTransferencia(@RequestBody TransferenciaRequestDTO transferenciaRequestDTO) {
+    public ResponseEntity<TransferenciaResponseDTO> efetuarTransferencia(@Valid @RequestBody TransferenciaRequestDTO transferenciaRequestDTO) {
         TransferenciaResponseDTO resultado = transferenciaService.efetuarTransferencia(transferenciaRequestDTO);
         return ResponseEntity.ok().body(resultado);
     }

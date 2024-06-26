@@ -1,4 +1,4 @@
-package com.desafioitau.api.transferencia.dto.response;
+package com.desafioitau.api.transferencia.application.dto.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
