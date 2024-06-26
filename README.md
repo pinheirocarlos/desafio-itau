@@ -1,6 +1,6 @@
 # API Transferências
 
-## Este serviço serve para efetuar transferências bancárias.
+## Este serviço tem como objetivo realizar validação e efetuar transferências bancárias entre clientes.
 
 ### Pré-requisitos
 
@@ -21,7 +21,10 @@ $ docker-compose up --build -d
 # O servidor iniciará na porta 8080 - acesse <http://localhost:8080>
 ```
 
-Para executar o endpoint da aplicação, consulte a documentação da API no Swagger UI
+### Documentação OpenAPI
+
+É possível verificar o endpoint da aplicação, assim como os parâmetros necessário para execução.
+Assim que a aplicação estiver rodando, consulte a documentação da API no Swagger UI
 em [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 ### Validações em uma transferência
