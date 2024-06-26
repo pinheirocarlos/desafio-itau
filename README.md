@@ -1,127 +1,44 @@
-# Desenvolvimento e Deploy
+# API Transferências
 
-Instruções detalhadas para desenvolvimento local, testes e deploy utilizando Docker e Docker Compose.
+## Este serviço serve para efetuar transferências bancárias.
 
-## Passo 1: Preparação do Ambiente
+### Pré-requisitos
 
-Clone o repositório do projeto para sua máquina local usando o Git:
+Antes de começar, será necessário instalar em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Java 17](https://www.oracle.com/br/java/technologies/downloads/#java17), [Docker](https://www.docker.com/products/docker-desktop/).
 
-```bash
-git clone https://github.com/mllcarvalho/DesafioItau.git
-cd DesafioItau
-```
-
-## Passo 2: Construção dos Containers com Docker Compose
-
-Na raiz do projeto, onde o arquivo docker-compose.yml está localizado, execute o comando abaixo para construir e iniciar todos o container do Wiremock definido no Docker Compose:
+### Executando o Back End
 
 ```bash
-docker-compose up --build -d
+# Clone este repositório
+$ git clone https://github.com/pinheirocarlos/desafio-itau.git
+$ cd desafio-itau
+
+
+# Na pasta raiz do projeto, execute o seguinte comando:
+$ docker-compose up --build -d
+
+# O servidor iniciará na porta 8080 - acesse <http://localhost:8080>
 ```
 
-## GET Mock Client
+Para executar o endpoint da aplicação, consulte a documentação da API no Swagger UI
+em [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
-  http://localhost:9090/clientes/bcdd1048-a501-4608-bc82-66d7b4db3600
-  
-  http://localhost:9090/clientes/2ceb26e9-7b5c-417e-bf75-ffaa66e3a76f
+### Validações em uma transferência
 
-  + Response 200 (application/json)
+- API verifica se o ID do cliente existe através da chamada à API Cadastro, assim apenas clientes devidamente
+  cadastrados podem realizar transferências;
+- API verifica o ID da conta, saldo disponível, limite diário, assegurando que as transferências ocorram apenas quando
+  houver recursos suficientes disponíveis;
+- API realiza comunicação com a API do Bacen para notificar as transferências ocorridas com sucesso.
 
-    + Body
+### Tecnologias
 
-            {
-                "id": "bcdd1048-a501-4608-bc82-66d7b4db3600",
-                "nome": "João Silva",
-                "telefone": "912348765",
-                "tipoPessoa": "Fisica"
-            }
-  
+As seguintes ferramentas foram usadas na construção do projeto:
 
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Java 17](https://www.oracle.com/br/java/technologies/downloads/#java17)
+- [Docker](https://www.docker.com/)
+- [Maven](https://maven.apache.org/)
 
-
-## GET Mock Contas
-
-  http://localhost:9090/contas/d0d32142-74b7-4aca-9c68-838aeacef96b
-  
-  http://localhost:9090/contas/41313d7b-bd75-4c75-9dea-1f4be434007f
-
-  + Response 200 (application/json)
-
-    + Body
-
-            {
-                "id": "d0d32142-74b7-4aca-9c68-838aeacef96b,
-                "saldo": 5000.00
-                "ativo": true
-                "limiteDiario": 500.00
-            }
-
-
-      
-
-## PUT Mock Contas - Atualiza Saldo
-
-  http://localhost:9090/contas/saldos
-
-  + Request (application/json)
-
-    + Body
-
-            {
-              "valor": 1000.00,
-              "conta": {
-                  "idOrigem": "d0d32142-74b7-4aca-9c68-838aeacef96b",
-                  "idDestino": "41313d7b-bd75-4c75-9dea-1f4be434007f"
-              }
-            }
-
-  + Response 204 - No content (application/json)
-
-
-
-
-## POST Mock Bacen
-
-  http://localhost:9090/notificacoes
-
-  + Request (application/json)
-
-    + Body
-
-            {
-              "valor": 1000.00,
-              "conta": {
-                  "idOrigem": "d0d32142-74b7-4aca-9c68-838aeacef96b",
-                  "idDestino": "41313d7b-bd75-4c75-9dea-1f4be434007f"
-              }
-            }
-
-  + Response 204 - No Content (application/json)
-      
-
-
-
-## POST API Transferência
-
-http://localhost:8080/transferencia
-
-  + Request (application/json)
-
-    + Body
-
-            {
-              "idCliente": "2ceb26e9-7b5c-417e-bf75-ffaa66e3a76f",
-              "valor": 1000.00,
-              "conta": {
-                  "idOrigem": "d0d32142-74b7-4aca-9c68-838aeacef96b",
-                  "idDestino": "41313d7b-bd75-4c75-9dea-1f4be434007f"
-              }
-            }
-
-  + Response 200 (application/json)
-
-    + Body
-
-            {
-                "id_transferencia": "410bb5b0-429f-46b1-8621-b7da101b1e28"
-            }
+[![Linkedin Badge](https://img.shields.io/badge/-Carlos-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carlos-pinheiro/)](https://www.linkedin.com/in/carlos-pinheiro/)
