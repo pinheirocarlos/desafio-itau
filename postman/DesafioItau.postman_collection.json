@@ -1,0 +1,159 @@
+{
+  "info": {
+    "_postman_id": "c649afd7-9c00-4c81-bb34-dddff510b070",
+    "name": "DesafioItau",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "2166496"
+  },
+  "item": [
+    {
+      "name": "GET Clientes",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/clientes/bcdd1048-a501-4608-bc82-66d7b4db3600",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "clientes",
+            "bcdd1048-a501-4608-bc82-66d7b4db3600"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Clientes Contas",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/contas/d0d32142-74b7-4aca-9c68-838aeacef96b",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "contas",
+            "d0d32142-74b7-4aca-9c68-838aeacef96b"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Atualiza Saldo",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "  {\r\n    \"valor\": 1000.00,\r\n    \"conta\": {\r\n        \"idOrigem\": \"d0d32142-74b7-4aca-9c68-838aeacef96b\",\r\n        \"idDestino\": \"41313d7b-bd75-4c75-9dea-1f4be434007f\"\r\n    }\r\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/contas/saldos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "contas",
+            "saldos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Notifica Bacen",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "  {\r\n    \"valor\": 1000.00,\r\n    \"conta\": {\r\n        \"idOrigem\": \"d0d32142-74b7-4aca-9c68-838aeacef96b\",\r\n        \"idDestino\": \"41313d7b-bd75-4c75-9dea-1f4be434007f\"\r\n    }\r\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/notificacoes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "notificacoes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Efetua Transferência",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "  {\r\n    \"idCliente\": \"bcdd1048-a501-4608-bc82-66d7b4db3600\",\r\n    \"valor\": 500.00,\r\n    \"conta\": {\r\n        \"idOrigem\": \"d0d32142-74b7-4aca-9c68-838aeacef96b\",\r\n        \"idDestino\": \"41313d7b-bd75-4c75-9dea-1f4be434007f\"\r\n    }\r\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/transferencia",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "transferencia"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
