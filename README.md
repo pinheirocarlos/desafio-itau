@@ -35,6 +35,11 @@ em [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-u
   houver recursos suficientes disponíveis;
 - API realiza comunicação com a API do Bacen para notificar as transferências ocorridas com sucesso.
 
+### Arquitetura de solução
+
+Na raiz do projeto, na pasta "docs" constam os desenhos de solução elaborados, sendo um com o cenário atual da aplicação
+e um segundo como uma proposta de melhoria.
+
 ### Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
